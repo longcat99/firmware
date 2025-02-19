@@ -1,4 +1,4 @@
-BR_VER = 2024.02.10
+BR_VER = 2024.02.6
 BR_MAKE = $(MAKE) -C $(TARGET)/buildroot-$(BR_VER) BR2_EXTERNAL=$(PWD)/general O=$(TARGET)
 BR_LINK = https://github.com/buildroot/buildroot/archive
 BR_FILE = /tmp/buildroot-$(BR_VER).tar.gz
@@ -23,10 +23,10 @@ endif
 all: build repack timer
 
 build: defconfig
-	@$(BR_MAKE) all -j$(shell nproc)
+	@$(BR_MAKE) all
 
 br-%: defconfig
-	@$(BR_MAKE) $(subst br-,,$@) -j$(shell nproc)
+	@$(BR_MAKE) $(subst br-,,$@)
 
 defconfig: prepare
 	@echo --- $(or $(CONFIG),$(error variable BOARD not found))

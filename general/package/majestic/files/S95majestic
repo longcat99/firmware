@@ -30,14 +30,10 @@ case "$1" in
 		$1
 		;;
 
-	restart)
+	restart|reload)
 		stop
 		sleep 3
 		start
-		;;
-
-	reload)
-		killall -1 "$DAEMON"
 		;;
 
 	*)

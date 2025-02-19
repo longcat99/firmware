@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-WIFIBROADCAST_NG_VERSION = 1d14a1a32df559b5a421fa15841e79e3b7a8ef99
+WIFIBROADCAST_NG_VERSION = 7dbdf92919cfccffa5ff46b0b8294e243f5f5a37
 WIFIBROADCAST_NG_SITE = $(call github,svpcom,wfb-ng,$(WIFIBROADCAST_NG_VERSION))
 WIFIBROADCAST_NG_LICENSE = GPL-3.0
 
@@ -22,9 +22,6 @@ define WIFIBROADCAST_NG_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/init.d
 	$(INSTALL) -m 755 -t $(TARGET_DIR)/etc/init.d $(WIFIBROADCAST_NG_PKGDIR)/files/S98wifibroadcast
 
-	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/sensors
-	$(INSTALL) -m 644 -t $(TARGET_DIR)/etc/sensors $(WIFIBROADCAST_NG_PKGDIR)/sensor/*
-
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/usr/bin
 	$(INSTALL) -m 755 -t $(TARGET_DIR)/usr/bin $(@D)/wfb_rx
 	$(INSTALL) -m 755 -t $(TARGET_DIR)/usr/bin $(@D)/wfb_tx
@@ -32,9 +29,6 @@ define WIFIBROADCAST_NG_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 755 -t $(TARGET_DIR)/usr/bin $(@D)/wfb_tun
 	$(INSTALL) -m 755 -t $(TARGET_DIR)/usr/bin $(WIFIBROADCAST_NG_PKGDIR)/files/wfb-cli
 	$(INSTALL) -m 755 -t $(TARGET_DIR)/usr/bin $(WIFIBROADCAST_NG_PKGDIR)/files/wifibroadcast
-
-	$(INSTALL) -m 755 -d $(TARGET_DIR)/var/www
-	$(INSTALL) -m 644 -t $(TARGET_DIR)/var/www $(WIFIBROADCAST_NG_PKGDIR)/www/*
 endef
 
 $(eval $(generic-package))
