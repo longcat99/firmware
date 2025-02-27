@@ -46,7 +46,7 @@ jobs:
               # 写入内核镜像 (3072KB，从 320KB 开始)
               dd if=output/uImage.$2 of=$release bs=1K seek=320 conv=notrunc status=none
 
-              # 写入根文件系统 (9600KB，从 3392KB 开始)
+              # 写入根文件系统 (9600KB，从 3392KB 开始) ，写入根文件系统 (105600KB，从 3392KB 开始)
               dd if=output/rootfs.squashfs.$2 of=$release bs=1K seek=3392 conv=notrunc status=none
 
               # 清理临时文件夹
