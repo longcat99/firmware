@@ -98,7 +98,7 @@ jobs:
           echo "Listing output/images contents:"
           ls -lh ${GITHUB_WORKSPACE}/output/images/
           # 定义 TAR 文件路径
-          TAR_FILE=${GITHUB_WORKSPACE}/output/images/longcat-openipc.${{matrix.platform}}-${{matrix.release}}.tgz
+          TAR_FILE=${GITHUB_WORKSPACE}/output/images/longcat-openipc.${{matrix.platform}}-${{matrix.release}}-uimage.tgz
           # 创建临时目录并复制所有文件
           TEMP_DIR=$(mktemp -d)
           cp -r ${GITHUB_WORKSPACE}/output/images/* ${TEMP_DIR}
