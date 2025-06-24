@@ -77,7 +77,7 @@ jobs:
 
           mkdir -p /tmp/ccache  # 创建 ccache 缓存目录
           ln -s /tmp/ccache ${HOME}/.ccache  # 将缓存目录链接到用户的 ccache 配置目录
-          make BOARD=${{matrix.platform}}_${{matrix.release}} linux  # 编译固件
+          make BOARD=${{matrix.platform}}_${{matrix.release}} br-linux  # 编译固件
 
           TIME=$(date -d @${SECONDS} +%M:%S)  # 计算编译时间
           echo TIME=${TIME} >> ${GITHUB_ENV}  # 将编译时间写入环境变量
